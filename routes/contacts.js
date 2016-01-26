@@ -2,9 +2,6 @@
 
 var express = require('express');
 var router = express.Router();
-var fs = require('fs'); 
-var DATAPATH = './contacts.json'; 
-
 var Contact = require('../models/contact');
 
 /* GET contacts listing. */
@@ -39,7 +36,6 @@ router.put('/:contactindex', function(req, res) {
   var index = parseInt(req.params.contactindex);
 
   Contact.find(function(contacts){
-    console.log('reqbody', req.body);
     contacts[index] = req.body; 
 
     Contact.write(contacts, function(err){
