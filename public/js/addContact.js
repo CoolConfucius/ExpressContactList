@@ -2,13 +2,14 @@
 
 $(document).ready(init); 
 
-var $name, $email, $phone, $birthday, $group, $add;
+var $name, $email, $phone, $birthday, $address, $group, $add;
 
 function init() {
   $name = $('#name'); 
   $email = $('#email'); 
   $phone = $('#phone'); 
   $birthday = $('#birthday'); 
+  $address = $('#address'); 
   $group = $('#group'); 
   $add = $('#add'); 
 
@@ -20,10 +21,11 @@ function addContact() {
   var email = $email.val();
   var phone = $phone.val();
   var birthday = $birthday.val();
+  var address = $address.val();
   var group = $group.val();
   $.post('/contacts', {
     name: name, email: email, phone: phone,
-    birthday: birthday, group: group
+    birthday: birthday, address: address, group: group
   })
   .success(function(data) {
     location.replace('/');

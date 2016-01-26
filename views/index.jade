@@ -5,7 +5,7 @@ block content
   h1= title
   a.btn.btn-primary(href='/addContact') Add Contact
   
-  table.table
+  table.table.table-hover
     thead
       tr
         th Name
@@ -19,5 +19,5 @@ block content
           td= contact.phone
           
 block scripts
-  script(src='js/contactIndex.js')
+  script(src='/js/contactIndex.js')
 

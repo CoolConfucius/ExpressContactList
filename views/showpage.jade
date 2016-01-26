@@ -8,13 +8,14 @@ block content
   h2= "Email: " + contact.email
   h2= "Phone: " + contact.phone
   h2= "Birthday: " + contact.birthday
+  h2= "Address: " + contact.address  
   h2= "Groups: " + contact.group  
   
   a.btn.btn-primary(href='/') Back
   button.btn.btn-danger#remove(data-index=index) Remove Contact
-  br
-  br
-  br
+  hr
+  hr
+  hr
 
   h3 Edit Contact:
   .form-group
@@ -31,6 +32,9 @@ block content
     label(for='birthday') Birthday
     input#birthday.form-control(type="date", value=contact.birthday)
   .form-group  
+    label(for='group') Address
+    input#address.form-control(type="text", value=contact.address)
+  .form-group  
     label(for='group') Groups
     input#group.form-control(type="text", value=contact.group)
   
@@ -39,5 +43,5 @@ block content
 
   
 block scripts
-  script(src='/../js/showpage.js')
+  script(src='/js/showpage.js')
 

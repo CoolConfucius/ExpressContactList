@@ -2,13 +2,14 @@
 
 $(document).ready(init); 
 
-var $name, $email, $phone, $birthday, $group;
+var $name, $email, $phone, $birthday, $address, $group;
 
 function init() {
   $name = $('#name'); 
   $email = $('#email'); 
   $phone = $('#phone'); 
   $birthday = $('#birthday'); 
+  $address = $('#address');
   $group = $('#group'); 
   $('#remove').click(remove); 
   $('#edit').click(edit); 
@@ -35,13 +36,14 @@ function edit(){
   var email = $email.val();
   var phone = $phone.val();
   var birthday = $birthday.val();
+  var address = $address.val();
   var group = $group.val();
   $.ajax({
     url: "/contacts/"+index,
     method: "PUT",
     data: {
     name: name, email: email, phone: phone,
-    birthday: birthday, group: group
+    birthday: birthday, address: address, group: group
   }
   })
   .success(function(data) {
