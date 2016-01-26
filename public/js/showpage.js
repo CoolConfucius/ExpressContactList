@@ -16,7 +16,6 @@ function init() {
 
 function remove(){
   var index = $(this).data('index');
-  console.log(index);
   $.ajax({
     url: "/contacts/"+index,
     method: "DELETE"
