@@ -35,6 +35,18 @@ router.delete('/:contactindex', function(req, res) {
   });
 });
 
+router.put('/:contactindex', function(req, res) {
+  var index = parseInt(req.params.contactindex);
+
+  Contact.find(function(contacts){
+    console.log('reqbody', req.body);
+    contacts[index] = req.body; 
+
+    Contact.write(contacts, function(err){
+      res.send(contacts);
+    });
+  });
+});
 
 
 module.exports = router;

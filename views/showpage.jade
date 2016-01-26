@@ -5,19 +5,40 @@ block content
   h1= title
   .jumbotron.text-center
     h1= "Name: " + contact.name
-  
-  h1= "Email: " + contact.email
-  h1= "Phone: " + contact.phone
-  h1= "Birthday: " + contact.birthday
-  h1= "Groups: " + contact.group  
-  h6= "Index: " + index
+  h2= "Email: " + contact.email
+  h2= "Phone: " + contact.phone
+  h2= "Birthday: " + contact.birthday
+  h2= "Groups: " + contact.group  
+  //- h6= "Index: " + index
   
   a.btn.btn-primary(href='/') Back
   button.btn.btn-danger#remove(data-index=index) Remove Contact
-  button.btn.btn-warning#edit Edit Contact
+  br
+  br
+  br
+
+  h3 Edit Contact:
+  .form-group
+    label(for='name') Name
+    input#name.form-control(type="text", placeholder="Name")
+  .form-group  
+    label(for='email') Email
+    input#email.form-control(type="text", placeholder="Email")
+  .form-group  
+    label(for='phone') Phone Number
+    input#phone.form-control(type="number", placeholder="Phone Number")
+  
+  .form-group  
+    label(for='birthday') Birthday
+    input#birthday.form-control(type="date")
+  .form-group  
+    label(for='group') Groups
+    input#group.form-control(type="text", placeholder="Groups")
+  
+  a.btn.btn-primary(href='/') Back
+  button.btn.btn-warning#edit(data-index=index) Confirm Edit
 
   
 block scripts
-  //- script(src='/../js/contactIndex.js')
   script(src='/../js/showpage.js')
 
