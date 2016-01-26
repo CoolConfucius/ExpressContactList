@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  .container
+  h1= title
+  .jumbotron.text-center
+    h1= "Name: " + contact.name
+  
+  h1= "Email: " + contact.email
+  h1= "Phone: " + contact.phone
+  h1= "Birthday: " + contact.birthday
+  h1= "Groups: " + contact.group
+  
+  
+  a.btn.btn-primary(href='/') Back
+  
+block scripts
+  script(src='js/contactIndex.js')
+

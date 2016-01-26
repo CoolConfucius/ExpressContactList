@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  .container
+  h1= title
+  .form-group
+    label(for='name') Name
+    input#name.form-control(type="text", placeholder="Name")
+  .form-group  
+    label(for='email') Email
+    input#email.form-control(type="text", placeholder="Email")
+  .form-group  
+    label(for='phone') Phone Number
+    input#phone.form-control(type="number", placeholder="Phone Number")
+  
+  .form-group  
+    label(for='birthday') Birthday
+    input#birthday.form-control(type="date")
+  .form-group  
+    label(for='group') Groups
+    input#group.form-control(type="text", placeholder="Groups")
+
+  button.btn.btn-success#add(type='submit') Add
+  a.btn.btn-danger(href='/') Cancel
+
+block scripts
+  script(src='js/addContact.js')
