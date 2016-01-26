@@ -5,32 +5,36 @@ var router = express.Router();
 var fs = require('fs'); 
 var DATAPATH = './contacts.json'; 
 
+var Contact = require('../models/contact');
+
 /* GET contacts listing. */
 router.get('/', function(req, res, next) {
-  fs.readFile(DATAPATH, function(err, data) {
-    var contacts = JSON.parse(data);
+  Contact.find(function(contacts){
     res.send(contacts);
-  });
+  })
 });
 
 router.post('/', function(req, res, next) {
-  fs.readFile(DATAPATH, function(err, data) {
-    var contacts = JSON.parse(data);
+  Contact.find(function(contacts){
     contacts.push(req.body);
-    fs.writeFile(DATAPATH, JSON.stringify(contacts), function(err) {
-      res.status(err ? 400 : 200).send(err || contacts); 
-      // res.redirect('/');
+    Contact.write(contacts, function(err){
+      res.status(err ? 400 : 200).send(err || contacts);
+    })
+  })
+});
+
+router.delete('/:contactindex', function(req, res) {
+  var index = parseInt(req.params.contactindex);
+
+  Contact.find(function(contacts){
+    contacts.splice(index, 1);
+
+    Contact.write(contacts, function(err){
+      res.send(contacts);
     });
   });
 });
 
 
-// router.get('/:contactindex', function(req, res, next) {
-//   var index = parseInt(req.params.contactindex); 
-//   fs.readFile(DATAPATH, function(err, data) {
-//     var contacts = JSON.parse(data);
-//     res.send(contacts);
-//   });
-// });
 
 module.exports = router;

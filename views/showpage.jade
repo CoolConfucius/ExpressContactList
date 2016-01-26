@@ -9,11 +9,15 @@ block content
   h1= "Email: " + contact.email
   h1= "Phone: " + contact.phone
   h1= "Birthday: " + contact.birthday
-  h1= "Groups: " + contact.group
-  
+  h1= "Groups: " + contact.group  
+  h6= "Index: " + index
   
   a.btn.btn-primary(href='/') Back
+  button.btn.btn-danger#remove(data-index=index) Remove Contact
+  button.btn.btn-warning#edit Edit Contact
+
   
 block scripts
-  script(src='js/contactIndex.js')
+  //- script(src='/../js/contactIndex.js')
+  script(src='/../js/showpage.js')
 
