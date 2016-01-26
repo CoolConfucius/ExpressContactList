@@ -14,7 +14,7 @@ router.get('/addContact', function(req, res, next) {
 router.get('/', function(req, res, next) {
   fs.readFile(DATAPATH, function(err, data) {
     var contacts = JSON.parse(data); 
-    res.render('index', { title: 'User Directory', contacts: contacts})
+    res.render('index', { title: 'Contact List', contacts: contacts})
   })
 });
 
